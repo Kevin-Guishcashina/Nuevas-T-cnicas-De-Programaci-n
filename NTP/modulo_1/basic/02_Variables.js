@@ -1,4 +1,4 @@
-var nombre = "Kevin"
+var nombre = "Kevin Omar"
 
 //Estados - Declaracion 
 var apellido;
