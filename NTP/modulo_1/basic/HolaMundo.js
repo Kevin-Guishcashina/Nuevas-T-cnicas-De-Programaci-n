@@ -4,7 +4,7 @@ console.log("Hola mundo");
 
 console.log("Kevin Guishcashina");
 
-console.warn("Este es mi perfil");
+console.warn("Este es un mensaje de warn");
 
 console.error("Este es un mensae de error");
 
