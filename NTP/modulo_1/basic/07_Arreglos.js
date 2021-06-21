@@ -71,6 +71,6 @@ console.log('Hay: '+valores.length+ ' valores');
 
 // 5) UNSHIFT
 
-var meses = ["Enero", "Febrero", "Marzo", "Abril"];
+var meses = ["Enero", "Febrero", "Marzo", "Abril" ];
 meses.unshift("Primer elemento");
 console.log(meses);
