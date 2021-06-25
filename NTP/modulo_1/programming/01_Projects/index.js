@@ -6,41 +6,27 @@ const app = express();
 
 //EndPoint
 // pide el pack y el colback
-app.get('/', (req, res) => {
-    //send envia texto plano
-    res.send("Hola mundo ExpressJs");
-});
 
-app.get("/saludo", (req, res) => {
-    // rep.query
-    //console.log(req.query);
-    //obtenemos la query del objeto request
-    /*
-    //otra forma
-    
-    primera forma
-    const { 
-        query: { nombre, apellido }, 
-    } = req;*/
-const {query} = req;
-    //segunda forma
-    //const nombre = req.query.nombre
-    //const apellido = req.query.apellido
+// ROUTERS
+const { RouterIndex } = require('./routes/index');
+// Como utilizamos
+app.use("/", RouterIndex)
+//app.use("/user", RouterIndex)
+//app.use("/user/data", RouterIndex)
+//app.use(RouterIndex)
+/* 
+    lo que va ser es concatenar 
+    "/" + "/" = "//" => "/"
+    "/" + "/saludo" = "//saludo" => "/saludo"
+    "/" + "/saludo/:nombre" = "//saludo/:nomber" => "/saludo/:nombre"
 
-    res.json({
-        saludo: `Hola soy ${query.nombre} ${query.apellido}`,
-    });
-});
-
-//para parametro con /:
-app.get('/saludo/:nombre', (req, res)=>{
-    const { params: { nombre } } = req
-    //const nombre = req.params.nombre
-    //console.log(req.params);
-    res.json({
-        nombre: nombre
-    })
-})
+        EJEMPLO 
+    app.use("/user", RouterIndex)
+    "/user" + "/saludo" = "/user/saludo"
+        EJEMPLO 
+    app.use("/user/data", RouterIndex)
+    "/user/data" + "/saludo" = "/user/data/saludo"
+    */
 app.listen(3000, () => {
     console.log("Servicodr escuchando en http://localhost:3000");
 })
