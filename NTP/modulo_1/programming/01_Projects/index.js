@@ -33,11 +33,19 @@ app.use("/", RouterIndex)
 
 
 
-const express = require("express");
+/*const express = require("express");
 const app = express();
 const { RouterDeber } = require("./routes/deber.js");
 app.use("/", RouterDeber);
 app.use("/deber-video", RouterDeber);
 app.listen(3000, () => {
   console.log("Servicodr escuchando en http://localhost:3000");
-});
+});*/
+
+const express = require('express');
+const app = express()
+const {RouterIndex} = require('./routes/index');
+app.use("/", RouterIndex)
+app.listen(3000, () => {
+    console.log("Servicodr escuchando en http://localhost:3000");
+})

@@ -28,21 +28,22 @@ router
   })
   .get("/users-params/:apellido", (req, res) => {
     const { params: { apellido } } = req;
-    var correo = data.filter(traer => traer.last_name == apellido).map(result => {
-     return result.email; 
+    var correo = data.filter(traer => traer.last_name == apellido);
+    var email = correo.map(traer2 =>{
+      return traer2.email;
     })
     var verificar = false;
     data.forEach(element => {
-        if (apellido === element.last_name) {
+        if (apellido == element.last_name) {
             verificar = true;
         } 
     });
-    if (verificar === true) {
+    if (verificar == true) {
         res.json({
           msg: "CONSULTA POR APELLIDO",
           body: [
             {
-              email: correo,
+              email: email,
             },
           ],
         });
