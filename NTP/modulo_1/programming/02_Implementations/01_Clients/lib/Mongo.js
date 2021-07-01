@@ -1,8 +1,8 @@
 //CONEXION A MONGODB
 const { MongoClient } = require('mongodb');
 
-const DB_NAME = "clients"
-const URL = "mongodb+srv://dbUser:dbuser@cluster0.wjh0q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const DB_NAME = "clients";
+const URL = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.wjh0q.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`;
 
 var MongoConnection = () => new Promise(async (resolve, reject) => {
     try {
@@ -17,4 +17,4 @@ var MongoConnection = () => new Promise(async (resolve, reject) => {
     }
 })
 
-module.exports.MondoConnection = MongoConnection;
+module.exports.MongoConnection = MongoConnection;
